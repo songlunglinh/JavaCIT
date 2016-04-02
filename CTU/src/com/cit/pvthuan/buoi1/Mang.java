@@ -6,98 +6,124 @@ public class Mang {
 	private int sophantu;
 	private int[] danhsach;
 
-	public Mang() {
-		super();
-		// TODO Auto-generated constructor stub
+	public Mang()
+	{
+	
 	}
 
-	public Mang(int sophantu, int[] danhsach) {
-		super();
+	public Mang(int sophantu, int[] danhsach)
+	{
 		this.sophantu = sophantu;
 		this.danhsach = danhsach;
 	}
 
-	public Mang(int[] danhsach) {
-		super();
+	public Mang(int[] danhsach)
+	{
 		this.danhsach = danhsach;
 	}
 
-	public void nhap() {
+	public void nhap()
+	{
 		Scanner input = new Scanner(System.in);
 		System.out.print("Nhap vao so phan tu: ");
 		sophantu = input.nextInt();
 		danhsach = new int[sophantu];
-		for (int i = 0; i <= danhsach.length - 1; i++) {
+		for (int i = 0; i <= danhsach.length - 1; i++)
+		{
 			System.out.print("Phan tu thu " + i + " la: ");
 			danhsach[i] = input.nextInt();
 		}
 	}
 
-	public void xuat() {
+	public void xuat()
+	{
 		System.out
 				.println("--------------------------------Bat dau in mang--------------------------------------------");
-		for (int i = 0; i <= danhsach.length - 1; i++) {
+		for (int i = 0; i <= danhsach.length - 1; i++)
+		{
 			System.out.println("Phan tu thu " + i + " la: " + danhsach[i]);
 		}
 	}
 
-	public int timMax() {
+	public int timMax()
+	{
 		int max = danhsach[0];
-		for (int i = 0; i <= danhsach.length - 1; i++) {
+		for (int i = 0; i <= danhsach.length - 1; i++)
+		{
 			if (max < danhsach[i])
+			{
 				max = danhsach[i];
+			}
 		}
 		return max;
 	}
 
-	public int timMin() {
+	public int timMin()
+	{
 		int min = danhsach[0];
-		for (int i = 0; i <= danhsach.length - 1; i++) {
+		for (int i = 0; i <= danhsach.length - 1; i++)
+		{
 			if (min > danhsach[i])
+			{
 				min = danhsach[i];
+			}
 		}
 		return min;
 	}
 
-	public int tim(int p) {
-		for (int i = 0; i <= danhsach.length - 1; i++) {
-			if (i == p) {
+	public int tim(int p)
+	{
+		for (int i = 0; i <= danhsach.length - 1; i++)
+		{
+			if (i == p)
+			{
 				return danhsach[i];
 			}
 		}
 		return -1;
 	}
 
-	public int timX(int x) {
-		for (int i = 0; i <= danhsach.length - 1; i++) {
-			if (danhsach[i] == x) {
+	public int timX(int x)
+	{
+		for (int i = 0; i <= danhsach.length - 1; i++)
+		{
+			if (danhsach[i] == x)
+			{
 				return danhsach[i];
 			}
 		}
 		return -1;
 	}
 
-	public int tong() {
+	public int tong()
+	{
 		int sum = 0;
-		for (int i = 0; i <= danhsach.length - 1; i++) {
+		for (int i = 0; i <= danhsach.length - 1; i++)
+		{
 			sum = sum + i;
 		}
 		return sum;
 	}
 
-	public float tongTB() {
+	public float tongTB()
+	{
 		float sum = 0;
 		return (float) tong() / danhsach.length;
 	}
 
-	public int xoa() {
-		if (sophantu == 0) {
+	public int xoa()
+	{
+		if (sophantu == 0)
+		{
 			return 0;
-		} else {
+		}
+		else
+		{
 			Mang temp = new Mang(danhsach);
 			sophantu--;
 			danhsach = new int[sophantu];
-			for (int i = 0; i <= danhsach.length - 1; i++) {
+			for (int i = 0; i <= danhsach.length - 1; i++)
+			{
 				danhsach[i] = temp.danhsach[i];
 			}
 			return 1;
@@ -254,67 +280,30 @@ public class Mang {
 			bubbleSort2();
 	}
 	
+	public int secondLargest()
+	{
+		int max = danhsach[0];
+		int secondMax = danhsach[0];
+		for(int i = 0; i < danhsach.length; i++) {
+ 
+			if (danhsach[i] > max) {
+				secondMax = max;
+				max = danhsach[i];
+ 
+			} else if (danhsach[i] > secondMax) {
+				secondMax = danhsach[i];
+ 
+			}
+		}
+		return secondMax;
+	}
+	
 	public static void main(String[] args) {
 		Mang obj = new Mang();
 		obj.nhap();
 		obj.xuat();
-//		System.out.println("Tim max: " + obj.timMax());
-//		System.out.println("Tim min: " + obj.timMin());
-//		Scanner input = new Scanner(System.in);
-//		System.out.print("Nhap vao vi tri can them: ");
-//		int p = input.nextInt();
-//		System.out.print("Nhap vao phan tu can: ");
-//		int x = input.nextInt();
-		// if(obj.tim(p)==-1)
-		// {
-		// System.out.println("Vi tri "+p+" khong ton tai");
-		// }
-		// else
-		// {
-		// System.out.println("Tim thay phan tu "+obj.tim(p)+ " o vi tri "+p);
-		// }
-		// System.out.print("Nhap vao phan tu can tim: ");
-		// int x = input.nextInt();
-		// if(obj.timX(x)==-1)
-		// {
-		// System.out.println("Khong tim thay phan tu "+x);
-		// }
-		// else
-		// {
-		// System.out.println("Tim thay phan tu "+x);
-		// }
-		// if(obj.xoa()==-1)
-		// {
-		// System.out.println("Khong the xoa");
-		// obj.xoa();3
-		
-		// obj.xuat();
-		// }
-		// if(obj.xoa()==0)
-		// {
-		// System.out.println("Khong the xoa");
-		// }
-		// else
-		// {
-		// obj.xuat();
-		// }
-//		if(obj.xoa(p)== 1)
-//		{
-//			obj.xuat();
-//		}
-//		else
-//		{
-//			System.out.println("not");
-//		}
-//		if(obj.them(p,x)==0)
-//		{
-//			System.out.println("not");
-//		}
-//		else
-//		{
-//			obj.xuat();
-//		}
-		obj.bubbleSort();
-		obj.xuat();
+//		obj.bubbleSort();
+//		obj.xuat();
+		System.out.println("Second Largest: "+obj.secondLargest());
 	}
 }
